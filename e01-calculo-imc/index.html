@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculo IMC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header></header>
+    <main class="text-zinc-600">
+      <div
+        class="flex flex-col gap-4 justify-center items-center min-h-screen bg-blue-100"
+      >
+        <div class="bg-white rounded-2xl w-96 p-5 shadow-xl">
+          <h2 class="font-bold text-xl mb-6 text-center">Calcule seu IMC</h2>
+          <form
+            action="/"
+            id="imcForm"
+            method="POST"
+            class="flex flex-col gap-4"
+          >
+            <div class="flex flex-col">
+              <label for="idweight">Peso(kg):</label>
+              <input
+                type="number"
+                id="idweight"
+                required
+                placeholder="96"
+                class="mt-2 ring-1 ring-blue-200 rounded-md py-1.5 px-2"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="idheight">Altura(cm):</label>
+              <input
+                type="number"
+                id="idheight"
+                required
+                placeholder="186"
+                class="mt-2 ring-1 ring-blue-200 rounded-md py-1.5 px-2"
+              />
+            </div>
+            <div class="flex gap-2">
+              <input
+                type="submit"
+                value="Enviar"
+                class="flex-1 bg-blue-500 text-center text-white rounded-md py-2 cursor-pointer"
+              />
+              <input
+                type="reset"
+                value="Limpar"
+                class="flex-1 bg-red-500 text-center text-white rounded-md py-2 cursor-pointer"
+              />
+            </div>
+          </form>
+          <div id="imcResult" class="mt-2 text-center"></div>
+        </div>
+        <div class="bg-white rounded-2xl w-96 p-5 shadow-xl">
+          <h1 class="text-xl font-bold mb-6 text-center">Tabela IMC</h1>
+          <div class="flex">
+            <div class="flex-1">
+              <p class="font-semibold pb-1">IMC</p>
+              <ol class="space-y-1 *:px-2 *:py-0.5">
+                <li class="bg-red-200">Menos do que 18,5</li>
+                <li class="bg-blue-200">Entre 18,5 e 24,9</li>
+                <li class="bg-yellow-100">Entre 25 e 29,9</li>
+                <li class="bg-orange-100">Entre 30 e 34,9</li>
+                <li class="bg-orange-200">Entre 35 e 39,9</li>
+                <li class="bg-red-200">Mais do que 50</li>
+              </ol>
+            </div>
+            <div class="flex-1 text-end">
+              <p class="font-semibold pb-1">Resultado</p>
+              <ol class="space-y-1 *:px-2 *:py-0.5">
+                <li class="bg-red-200">Abaixo do peso</li>
+                <li class="bg-blue-200">Peso normal</li>
+                <li class="bg-yellow-100">Sobrepeso</li>
+                <li class="bg-orange-100">Obesidade grau 1</li>
+                <li class="bg-orange-200">Obesidade grau 2</li>
+                <li class="bg-red-200">Obesidade grau 3</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="index.js"></script>
+  </body>
+</html>
