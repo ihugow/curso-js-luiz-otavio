@@ -1,0 +1,20 @@
+{
+  "name": "curso-js-luiz-otavio",
+  "version": "1.0.0",
+  "description": "Repositório para treinamento de JS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihugow/curso-js-luiz-otavio.git"
+  },
+  "author": "Hugo Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ihugow/curso-js-luiz-otavio/issues"
+  },
+  "homepage": "https://github.com/ihugow/curso-js-luiz-otavio#readme"
+}
