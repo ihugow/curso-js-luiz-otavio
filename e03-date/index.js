@@ -1,112 +1,98 @@
-const getWeekDayString = (weekDay) => {
-  let result = "";
-  switch (weekDay) {
-    case 0:
-      result = "Domingo";
-      return result;
-    case 1:
-      result = "Segunda-feira";
-      return result;
-    case 2:
-      result = "Terça-feira";
-      return result;
-    case 3:
-      result = "Quarta-feira";
-      return result;
-    case 4:
-      result = "Quinta-feira";
-      return result;
-    case 5:
-      result = "Sexta-feira";
-      return result;
-    case 6:
-      result = "Sábado";
-      return result;
-  }
+//MANEIRA ABSOLETA
+// const getDayName = (day) => {
+//   switch (day) {
+//     case 0:
+//       return "Domingo";
+//     case 1:
+//       return "Segunda-feira";
+//     case 2:
+//       return "Terça-feira";
+//     case 3:
+//       return "Quarta-feira";
+//     case 4:
+//       return "Quinta-feira";
+//     case 5:
+//       return "Sexta-feira";
+//     case 6:
+//       return "Sábado";
+//   }
+// };
+
+// const getMonthName = (month) => {
+//   switch (month) {
+//     case 0:
+//       return "Janeiro";
+//     case 1:
+//       return "Fevereiro";
+//     case 2:
+//       return "Março";
+//     case 3:
+//       return "Abril";
+//     case 4:
+//       return "Maio";
+//     case 5:
+//       return "Junho";
+//     case 6:
+//       return "Julho";
+//     case 7:
+//       return "Agosto";
+//     case 8:
+//       return "Setembro";
+//     case 9:
+//       return "Outubro";
+//     case 10:
+//       return "Novembro";
+//     case 11:
+//       return "Dezembro";
+//   }
+// };
+
+// const addZeroBefore = (num) => {
+//   return num >= 10 ? num : `0${num}`;
+// };
+
+// const createH1 = () => {
+//   const h1 = document.createElement("h1");
+//   return h1;
+// };
+
+// const createDate = (date) => {
+//   const weekDayNumber = date.getDay();
+//   const monthNumber = date.getMonth();
+//   const dayName = getDayName(weekDayNumber);
+//   const monthName = getMonthName(monthNumber);
+
+//   return `${dayName}, ${date.getDate()} de ${monthName} de ${date.getFullYear()}`;
+// };
+
+// const createHours = (date) => {
+//   return `${addZeroBefore(date.getHours())}:${addZeroBefore(date.getMinutes())}`
+// };
+
+// const createMsg = (date, hours) => {
+//   h1 = createH1();
+//   h1.innerHTML = `${date} <br> <strong>${hours}`;
+//   container = document.querySelector('#dateContainer');
+//   container.appendChild(h1);
+// };
+
+// const date = new Date();
+// const dateMsg = createDate(date);
+// const hoursMsg = createHours(date);
+// createMsg(dateMsg, hoursMsg);
+
+//MANEIRA MODERNA
+const date = new Date();
+
+const options = {
+  weekday: 'long',
+  year: 'numeric', 
+  month: 'long',  
+  day: 'numeric',  
+  hour: 'numeric',
+  minute: 'numeric'
 };
 
-const getMounthString = (mounth) => {
-  let result = "";
-  switch (mounth) {
-    case 0:
-      result = "Janeiro";
-      return result;
-    case 1:
-      result = "Fevereiro";
-      return result;
-    case 2:
-      result = "Março";
-      return result;
-    case 3:
-      result = "Abril";
-      return result;
-    case 4:
-      result = "Maio";
-      return result;
-    case 5:
-      result = "Junho";
-      return result;
-    case 6:
-      result = "Julho";
-      return result;
-    case 7:
-      result = "Agosto";
-      return result;
-    case 8:
-      result = "Setembro";
-      return result;
-    case 9:
-      result = "Outubro";
-      return result;
-    case 10:
-      result = "Novembro";
-      return result;
-    case 11:
-      result = "Dezembro";
-      return result;
-  }
-};
-
-const formatHours = (hours, minutes) => {
-  let result = '';
-  let formatedHours = `${hours}`;
-  let formatedMinutes = `${minutes}`;
-
-  if (hours < 10) { 
-    formatedHours = `0${hours}`; 
-  }
-  if (minutes < 10) { 
-    formatedMinutes = `0${minutes}`; 
-  }
-
-  result = `${formatedHours}:${formatedMinutes}`;
-  return result;
-};
-
-const createP = () => {
-  const p = document.createElement("p");
-  return p;
-};
-
-const mountMsg = (weekDayString, mounthDay, mounth, year, formatedHours) => {
-  const msgDiv = document.querySelector("#timeContainer");
-  const msg = `${weekDayString}, ${mounthDay} de ${mounth} de ${year} <br> ${formatedHours}`;
-  const p = createP();
-  p.innerHTML = msg;
-  msgDiv.appendChild(p);
-};
-
-const data = new Date();
-
-const weekDay = data.getDay();
-const mounthDay = data.getDate();
-const mounth = data.getMonth();
-const year = data.getFullYear();
-const hours = data.getHours();
-const minutes = data.getMinutes();
-
-const weekDayString = getWeekDayString(weekDay);
-const mounthString = getMounthString(mounth);
-const formatedHours = formatHours(hours, minutes);
-
-mountMsg(weekDayString, mounthDay, mounthString, year, formatedHours);
+const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(date);
+const h1 = document.querySelector('#dateContainer h1');
+h1.innerHTML = formattedDate;
